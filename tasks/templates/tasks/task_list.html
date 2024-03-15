@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="my-3 p-3 bg-white rounded shadow-sm">
+    <h1 class="border-bottom pb-2 mb-4">Task List</h1>
+    <div class="d-flex justify-content-end mb-2">
+        <a href="{% url 'task_create' %}" class="btn btn-primary">Add New Task</a>
+    </div>
+    {% for task in tasks %}
+        <div class="list-group">
+            <div class="list-group-item flex-column align-items-start">
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1 {{task.completed|yesno:'task-completed,'}}">{{ task.title }}</h5>
+                    <small class="text-muted">{{ task.completed|yesno:"Completed,Pending" }}</small>
+                </div>
+                <p class="mb-1">{{ task.description }}</p>
+                <div class="action-btns">
+                    <a href="{% url 'task_update' task.id %}" class="btn btn-sm btn-outline-secondary">Edit</a>
+                    <a href="{% url 'task_delete' task.id %}" class="btn btn-sm btn-outline-danger">Delete</a>
+                </div>
+            </div>
+        </div>
+    {% empty %}
+        <p class="text-muted">No tasks available. Add a new task to get started.</p>
+    {% endfor %}
+</div>
+{% endblock %}
