@@ -42,6 +42,12 @@ h1 {
     background-color: #f8f9fa;
 }
 
+.task-completed {
+    color: #6c757d; /* Bootstrap's secondary text color */
+    text-decoration: line-through;
+}
+
+
 /* Styling for task completion status */
 .task-completed {
     text-decoration: line-through;

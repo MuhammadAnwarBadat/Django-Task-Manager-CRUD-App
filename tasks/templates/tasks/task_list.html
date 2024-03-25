@@ -11,7 +11,7 @@
             <div class="list-group-item flex-column align-items-start">
                 <div class="d-flex w-100 justify-content-between">
                     <h5 class="mb-1 {{task.completed|yesno:'task-completed,'}}">{{ task.title }}</h5>
-                    <small class="text-muted">{{ task.completed|yesno:"Completed,Pending" }}</small>
+                    <small class="badge {{task.completed|yesno:'bg-success text-white, bg-warning text-dark'}}">{{ task.completed|yesno:"Completed,Pending" }}</small>
                 </div>
                 <p class="mb-1">{{ task.description }}</p>
                 <div class="action-btns">
